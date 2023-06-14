@@ -1,0 +1,23 @@
+.program-container{
+    padding: 5px;
+    width: 8vw;
+    height: 8vw;
+    border: solid 1px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.program-line{
+    /* background-color: red; */
+    display: flex;
+}
+.program-line div:nth-child(1) {
+    width: 6vw;
+}
+.program-line div:nth-child(2) {
+    width: 2vw;
+    display: flex;
+    justify-content: flex-end;
+}
