@@ -14,7 +14,7 @@ export default function Home() {
   const onLogin = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await fetch('http://localhost:3001/admin/login', { 
+      const response = await fetch('https://back.durandfrenchmix.fr/admin/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

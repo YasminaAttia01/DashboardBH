@@ -39,11 +39,11 @@ const DetailArticle = () => {
       try {
         const slug = window.location.pathname.split("/").pop();
         const response = await axios.get(
-          "http://localhost:3001/api/batteurs/" + slug
+          "https://back.durandfrenchmix.fr/api/batteurs/" + slug
         );
         if (response.data === null) {
           const response2 = await axios.get(
-            "http://localhost:3001/api/petrins/" + slug
+            "https://back.durandfrenchmix.fr/api/petrins/" + slug
           );
           setProduct(response2.data);
           setFormData(response2.data);
@@ -66,7 +66,7 @@ const DetailArticle = () => {
     if(index!=-1){
     axios
       .post(
-        `http://localhost:3001/api/${
+        `https://back.durandfrenchmix.fr/api/${
           product.category === "Batteur Mélangeur" ? "batteurs" : "petrins"
         }/delete-picture/${product.slug}`,
         {index : index},
@@ -91,12 +91,12 @@ const DetailArticle = () => {
     try {
       if (product.category === "Batteur Mélangeur") {
         await axios.put(
-          "http://localhost:3001/api/batteurs/edit/" + product.slug,
+          "https://back.durandfrenchmix.fr/api/batteurs/edit/" + product.slug,
           formData
         );
       } else {
         await axios.put(
-          "http://localhost:3001/api/petrins/edit/" + product.slug,
+          "https://back.durandfrenchmix.fr/api/petrins/edit/" + product.slug,
           formData
         );
       }
@@ -117,7 +117,7 @@ const DetailArticle = () => {
 
     axios
       .post(
-        `http://localhost:3001/api/${
+        `https://back.durandfrenchmix.fr/api/${
           product.category === "Batteur Mélangeur" ? "batteurs" : "petrins"
         }/add-picture/${product.slug}`,
         formData,
@@ -428,7 +428,7 @@ const DetailArticle = () => {
           <div className="flex flex-col items-center justify-center gap-y-9   ">
             <div className="    lg:w-[450px]    ">
               <img
-                src={`http://localhost:3001/api/${
+                src={`https://back.durandfrenchmix.fr/api/${
                   product?.images[product?.images.length - 1]
                 }`}
               />
@@ -469,7 +469,7 @@ const DetailArticle = () => {
           <div className="  flex flex-row gap-10 items-center flex-wrap">
            {product && product.images && product.images.map((image, index) => (
               <div className="relative" key={index}>
-                <img className="h-[150px] w-[150px] " src={`http://localhost:3001/api/${image}`} alt={`Product Image ${index + 1}`} />
+                <img className="h-[150px] w-[150px] " src={`https://back.durandfrenchmix.fr/api/${image}`} alt={`Product Image ${index + 1}`} />
                 <div className="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onClick={()=>supprimerimage(index,image)} >
       Supprimer
     </div>

@@ -19,8 +19,8 @@ export default function Articles() {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const respons = await axios.get("http://localhost:3001/api/batteurs/all")
-        const respons1 = await axios.get("http://localhost:3001/api/petrins/all")
+        const respons = await axios.get("https://back.durandfrenchmix.fr/api/batteurs/all")
+        const respons1 = await axios.get("https://back.durandfrenchmix.fr/api/petrins/all")
         console.log(respons)
         setProducts(respons.data.concat(respons1.data))
 
@@ -72,7 +72,7 @@ export default function Articles() {
         formDataToSend.append("images", image);
       });
       if (selectedOption.label === 'Batteur') {
-        const res = await axios.post("http://localhost:3001/api/batteurs/add", formDataToSend, {
+        const res = await axios.post("https://back.durandfrenchmix.fr/api/batteurs/add", formDataToSend, {
 
           headers: {
             "Content-Type": "multipart/form-Data",
@@ -81,7 +81,7 @@ export default function Articles() {
         setProducts(products.concat(res.data.batteur))
       }
       else {
-        const res = await axios.post("http://localhost:3001/api/petrins/add", formDataToSend, {
+        const res = await axios.post("https://back.durandfrenchmix.fr/api/petrins/add", formDataToSend, {
 
           headers: {
             "Content-Type": "multipart/form-Data",
@@ -110,10 +110,10 @@ export default function Articles() {
     if (confirmed) {
       try {
         if (category==="Batteur Mélangeur"){
-          await axios.delete(`http://localhost:3001/api/batteurs/delete/${slug}`);
+          await axios.delete(`https://back.durandfrenchmix.fr/api/batteurs/delete/${slug}`);
         }
         else {
-          await axios.delete(`http://localhost:3001/api/petrins/delete/${slug}`);
+          await axios.delete(`https://back.durandfrenchmix.fr/api/petrins/delete/${slug}`);
         }
         const updatedproducts = products.filter((article) => article.slug !== slug);
         setProducts(updatedproducts);  

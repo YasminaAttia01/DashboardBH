@@ -28,7 +28,7 @@ export default function ArticleCard({key,slug,title,category,image,deleteFunctio
 
             </div >
             <div>
-                    <img src={"http://localhost:3001/api/"+image} width={90} alt="image"  />
+                    <img src={"https://back.durandfrenchmix.fr/api/"+image} width={90} alt="image"  />
             </div>
         </div>
         <div className="align place-self-center px-5">
